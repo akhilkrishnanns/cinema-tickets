@@ -29,3 +29,4 @@ Start running by calling unit test runs.
 4. Can separate the business rules into individual methods when they need to be validated individually(based on the use case).
 5. Can add more ticket types in the future with minor updates.
 6. Can update Infant ticket price in the future if needed, with minor calculation updates.
+7. Implement logging for improved auditing, monitoring and troubleshooting.
