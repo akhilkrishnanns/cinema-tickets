@@ -5,17 +5,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.*;
 import thirdparty.paymentgateway.TicketPaymentService;
-import thirdparty.paymentgateway.TicketPaymentServiceImpl;
 import thirdparty.seatbooking.SeatReservationService;
-import thirdparty.seatbooking.SeatReservationServiceImpl;
 import uk.gov.dwp.uc.pairtest.domain.TicketTypeRequest;
 import uk.gov.dwp.uc.pairtest.exception.InvalidAccountException;
 import uk.gov.dwp.uc.pairtest.exception.InvalidPurchaseException;
 import uk.gov.dwp.uc.pairtest.util.BusinessRuleValidator;
 import uk.gov.dwp.uc.pairtest.util.TestInputConverter;
 import uk.gov.dwp.uc.pairtest.util.TicketRequestData;
-
-import java.util.Map;
 
 
 /**
@@ -45,10 +41,6 @@ class TicketServiceImplTest {
         @Spy
         SeatReservationService seatReservationService;
 
-//        TicketPaymentService ticketPaymentService = new TicketPaymentServiceImpl();
-//
-//        SeatReservationService seatReservationService = new SeatReservationServiceImpl();
-
 
         @BeforeEach
         void setUp(){
@@ -56,8 +48,6 @@ class TicketServiceImplTest {
             MockitoAnnotations.openMocks(this);
 
         }
-
-
 
         /**
          * Parameterized test for successful purchase of tickets when valid inputs provided.
@@ -94,7 +84,6 @@ class TicketServiceImplTest {
 
         }
 
-
         /**
          * Testing throws {code InvalidPurchaseException} for purchase of tickets when invalid input provided.
          * Given null for {@code TicketTypeRequest[]}*/
@@ -126,7 +115,6 @@ class TicketServiceImplTest {
             //Given
             long accountId = 1L;
 
-
             //when
             Assertions.assertThrowsExactly(InvalidPurchaseException.class,
                     ()->ticketServiceImpl.purchaseTickets(accountId,new TicketTypeRequest[]{}));
@@ -136,9 +124,6 @@ class TicketServiceImplTest {
             Mockito.verify(seatReservationService,Mockito.never()).reserveSeat(Mockito.anyLong(),Mockito.anyInt());
 
         }
-
-
-        
 
         /**
          * validating by assuring the system throws {@code InvalidUserException}
@@ -159,10 +144,6 @@ class TicketServiceImplTest {
 
             Assertions.assertThrowsExactly(InvalidAccountException.class,()->ticketServiceImpl.purchaseTickets(accountId,ticketTypeRequests));
         }
-
-
-
-
     }
 
 }

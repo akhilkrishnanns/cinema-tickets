@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 public class StaticMessageSource implements MessageSource {
 
-
     /**
      * Implementation of internationalization in error messages<br>
      * @param messageId id of the error message.
@@ -17,7 +16,6 @@ public class StaticMessageSource implements MessageSource {
      * If more needed, add appropriate {@code messages_{locale}.properties} file before updating any change below.
 
      * */
-
     @Override
     public String message(String messageId, Locale locale) {
         Locale localeDefault = Locale.getDefault();

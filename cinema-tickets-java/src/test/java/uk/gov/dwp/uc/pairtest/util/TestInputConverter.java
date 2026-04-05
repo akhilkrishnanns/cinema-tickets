@@ -2,8 +2,6 @@ package uk.gov.dwp.uc.pairtest.util;
 
 import uk.gov.dwp.uc.pairtest.domain.TicketTypeRequest;
 
-import java.util.*;
-
 /**
  * Class helps the Test methods to parse/convert the input for parameterized tests.*/
 public class TestInputConverter {

@@ -12,13 +12,14 @@ public class BusinessRuleValidator {
 
     /**
      * Maximum number of tickets that can be purchased at a time.
-     * */
+     */
     static final int MAX_TICKET_COUNT = 25;
 
     /**
      * method to validate core business rules.
      * @throws InvalidPurchaseException if any validation fails. Error message can be used to identify the exact
-     * error.*/
+     * error.
+     */
     public void validateBusinessRules(TicketRequestData totalTicketData) {
 
         /*

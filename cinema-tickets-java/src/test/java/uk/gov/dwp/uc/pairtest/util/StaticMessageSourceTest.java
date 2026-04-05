@@ -1,13 +1,13 @@
 package uk.gov.dwp.uc.pairtest.util;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Testing Static message source")
 class StaticMessageSourceTest {
@@ -25,13 +25,11 @@ class StaticMessageSourceTest {
 
     }
 
-
-
-
     @Test
     @DisplayName("Should Successfully show locale message corresponding to the message id and locale")
     void shouldReturnDifferentLocaleMessageSuccessfully(){
 
+        //When & Then
         Assertions.assertEquals(
                 DEFAULT_TEST_MESSAGE,
                 staticMessageSource.message(TEST_MESSAGE_ID,Locale.getDefault())
@@ -41,8 +39,6 @@ class StaticMessageSourceTest {
                 WELSH_TEST_MESSAGE,
                 staticMessageSource.message(TEST_MESSAGE_ID,Locale.of("cy"))
         );
-
-
 
     }
 

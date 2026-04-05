@@ -20,7 +20,6 @@ public class TicketServiceImpl implements TicketService {
      * Should only have private methods other than the one below.
      */
 
-
     private final TicketPaymentService ticketPaymentService;
     private final SeatReservationService seatReservationService;
     private final BusinessRuleValidator businessRuleValidator;
@@ -39,7 +38,6 @@ public class TicketServiceImpl implements TicketService {
         this.businessRuleValidator = businessRuleValidator;
     }
 
-
     /**
      * It is a public method overrides from the parent {@link TicketService}.
      * @param accountId Accepts a valid Long which is greater than zero.
@@ -55,24 +53,17 @@ public class TicketServiceImpl implements TicketService {
          * if the input parameter changes to a user DTO, move below validation to validator
          */
         if(accountId<1) throw new InvalidAccountException(ERROR_ACCOUNT_INVALID,Locale.getDefault());
-
-
         validateTicketTypeRequestsData(ticketTypeRequests);
 
         TicketRequestData totalTicketData = getTotalTicketData(ticketTypeRequests);
         businessRuleValidator.validateBusinessRules(totalTicketData);
 
-
         CalculatedPriceAndSeats calculatedTotalPriceAndSeats
                 = calculateTotalAmountToPayAndSeatsToAllocate(totalTicketData);
 
         ticketPaymentService.makePayment(accountId, calculatedTotalPriceAndSeats.totalAmount());
-
         seatReservationService.reserveSeat(accountId,calculatedTotalPriceAndSeats.totalSeats());
-
-
     }
-
 
     /**
      * Method used to merge multiple {@link  TicketTypeRequest} objects with same
