@@ -1,5 +1,15 @@
 package uk.gov.dwp.uc.pairtest.exception;
 
-public class InvalidPurchaseException extends RuntimeException {
+import java.util.Locale;
+
+public class InvalidPurchaseException extends BusinessException {
+
+    /**
+     * Constructor
+     * */
+    public InvalidPurchaseException(String messageId, Locale locale){
+
+        super(messageId,locale);
+    }
 
 }

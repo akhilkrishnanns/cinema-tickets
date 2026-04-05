@@ -2,25 +2,12 @@ package uk.gov.dwp.uc.pairtest.domain;
 
 /**
  * Immutable Object
+ * @implNote
+ * Previous class has been updated to a record which satisfies previous functionalities in less LOC.
  */
 
-public class TicketTypeRequest {
+public record TicketTypeRequest (Type type, int noOfTickets){
 
-    private int noOfTickets;
-    private Type type;
-
-    public TicketTypeRequest(Type type, int noOfTickets) {
-        this.type = type;
-        this.noOfTickets = noOfTickets;
-    }
-
-    public int getNoOfTickets() {
-        return noOfTickets;
-    }
-
-    public Type getTicketType() {
-        return type;
-    }
 
     public enum Type {
         ADULT, CHILD , INFANT
